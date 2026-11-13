@@ -1,0 +1,8 @@
+*.log
+*.gds
+*.db
+*.nlib
+outputs/
+dbs/
+xcelium.d/
+__pycache__/

@@ -1,0 +1,13 @@
+// __PDK_180NM__ full-chip DRC for aegis_chip (__METAL_STACK__, __IOPAD_FAMILY__ 1.8V core / 3.3V I/O)
+LAYOUT PATH    "LAYOUT_GDS"
+LAYOUT PRIMARY "aegis_chip"
+LAYOUT SYSTEM GDSII
+DRC RESULTS DATABASE "drc.results" ASCII
+DRC SUMMARY REPORT   "drc.summary" REPLACE HIER
+DRC CELL NAME YES CELL SPACE XFORM
+// SRAM placeholders carry abstract geometry only (__FOUNDRY__ merges real layout)
+EXCLUDE CELL MEM_SP_2048x36 MEM_SP_4096x52 MEM_SP_64x32
+#define __METAL_STACK__
+#define CHIP
+#define 3V
+INCLUDE "$PDK_ROOT/pdk/cdns/__PDK_DIR__/HOTCODE/techs/__TECH__/calibre/t.00_00_01_scr/DRC___TECH___CALIBRE"

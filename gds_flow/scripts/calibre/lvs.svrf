@@ -1,0 +1,20 @@
+// __PDK_180NM__ full-chip LVS for aegis_chip
+LAYOUT PATH    "LAYOUT_GDS"
+LAYOUT PRIMARY "aegis_chip"
+LAYOUT SYSTEM GDSII
+LAYOUT CASE YES
+SOURCE PATH    "SOURCE_CDL"
+SOURCE PRIMARY "aegis_chip"
+SOURCE SYSTEM SPICE
+SOURCE CASE YES
+LVS REPORT "lvs.report"
+MASK SVDB DIRECTORY "svdb" QUERY
+ERC RESULTS DATABASE "erc.results"
+ERC SUMMARY REPORT "erc.summary" REPLACE HIER
+ERC MAXIMUM RESULTS 1000
+// SRAMs: __FOUNDRY__ hard IP, layout merged by __FOUNDRY__ -> compared as black boxes
+LVS BOX MEM_SP_2048x36 MEM_SP_4096x52 MEM_SP_64x32
+// __FOUNDRY__ pad cells contain a DNW-psub junction diode that their CDL omits
+LVS FILTER D(dwn2psub) OPEN LAYOUT
+#define __METAL_STACK__
+INCLUDE "$PDK_ROOT/pdk/cdns/__PDK_DIR__/HOTCODE/techs/__TECH__/calibre/t.00_00_01_scr/LVS___TECH___CALIBRE"

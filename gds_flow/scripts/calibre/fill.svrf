@@ -1,0 +1,17 @@
+// __PDK_180NM__ dummy fill (AA, GC, M1..TOP_M) for aegis_chip
+LAYOUT PATH    "LAYOUT_GDS"
+LAYOUT PRIMARY "aegis_chip"
+LAYOUT SYSTEM GDSII
+DRC SUMMARY REPORT "fill.summary" REPLACE HIER
+DRC RESULTS DATABASE "aegis_chip_fill.gds" GDS2 _dummy
+DRC MAXIMUM RESULTS ALL
+DRC MAXIMUM VERTEX ALL
+DRC CELL NAME YES CELL SPACE XFORM
+#define __METAL_STACK__
+#define AA_gen
+#define GC_gen
+#define M1_gen
+#define M2_gen
+#define M3_gen
+#define MT_gen
+INCLUDE "$PDK_ROOT/pdk/cdns/__PDK_DIR__/HOTCODE/techs/__TECH__/calibre/t.00_00_01_scr/DUMMYFILL___TECH___CALIBRE"

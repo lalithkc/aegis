@@ -1,0 +1,15 @@
+// Metal min-area re-check with the SRAM placeholders KEPT (no EXCLUDE CELL).
+// The main DRC excludes MEM_SP_* cells, so router landing patches on SRAM pins
+// look isolated (M1/M3.A.1).  Here the LEF pin metal is present, as the real
+// __FOUNDRY__ memory layout will be.
+LAYOUT PATH    "LAYOUT_GDS"
+LAYOUT PRIMARY "aegis_chip"
+LAYOUT SYSTEM GDSII
+DRC RESULTS DATABASE "drc_srampins.results" ASCII
+DRC SUMMARY REPORT   "drc_srampins.summary" REPLACE HIER
+DRC CELL NAME YES CELL SPACE XFORM
+DRC SELECT CHECK M1.A.1 M2.A.1 M3.A.1
+#define __METAL_STACK__
+#define CHIP
+#define 3V
+INCLUDE "$PDK_ROOT/pdk/cdns/__PDK_DIR__/HOTCODE/techs/__TECH__/calibre/t.00_00_01_scr/DRC___TECH___CALIBRE"
